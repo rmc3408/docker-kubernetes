@@ -8,6 +8,12 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 80
+ARG REACT_ENV=DEV
 
-CMD ["npx", "nodemon", "server.js"]
+ENV DOCKER_SERVER_PORT 80
+ENV NODE_ENV ${REACT_ENV}
+
+EXPOSE $DOCKER_SERVER_PORT
+
+# CMD ["npx", "nodemon", "server.js"]
+CMD ["npm", "start"]

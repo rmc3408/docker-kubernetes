@@ -6,6 +6,8 @@ const bodyParser = require('body-parser')
 
 const app = express()
 
+const PORT = process.env.DOCKER_SERVER_PORT
+
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(express.static('public'))
@@ -43,4 +45,4 @@ app.post('/create', async (req, res) => {
   }
 })
 
-app.listen(80, () => console.log('Listening on port 80'))
+app.listen(PORT, () => console.log('Listening on port', PORT))
