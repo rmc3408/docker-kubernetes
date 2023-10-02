@@ -73,7 +73,7 @@ mongoose.connect(
   //'mongodb://localhost:27017/swfavorites', //local node to local mongod server
   //'mongodb://host.docker.internal:27017/swfavorites', //container node to local mongod server
   //'mongodb://172.17.0.2:27017/swfavorites', //container node to container mongod server
-  'mongodb://mongo-server-container:27017/swfavorites', //container node to container mongod server
+  'mongodb://mongo-tiny:27017/swfavorites', //container node to container mongod server
   { useNewUrlParser: true },
   (err) => {
     if (err) {
