@@ -1,4 +1,4 @@
-FROM mhart/alpine-node
+FROM node:alpine
 
 WORKDIR /app
 
@@ -8,4 +8,8 @@ RUN npm install
 
 COPY . .
 
-CMD ["node", "app.js"]
+EXPOSE 3000
+
+VOLUME ["/app/node_modules"]
+
+CMD ["npm", "start"]

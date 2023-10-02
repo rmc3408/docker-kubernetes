@@ -4,6 +4,8 @@ import GoalInput from './components/goals/GoalInput';
 import CourseGoals from './components/goals/CourseGoals';
 import ErrorAlert from './components/UI/ErrorAlert';
 
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3001/goals'
+
 function App() {
   const [loadedGoals, setLoadedGoals] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -14,9 +16,11 @@ function App() {
       setIsLoading(true);
 
       try {
-        const response = await fetch('http://localhost/goals');
+        const response = await fetch(BACKEND_URL);
 
         const resData = await response.json();
+
+        console.log('hi', BACKEND_URL)
 
         if (!response.ok) {
           throw new Error(resData.message || 'Fetching the goals failed.');
@@ -39,7 +43,7 @@ function App() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost/goals', {
+      const response = await fetch(BACKEND_URL, {
         method: 'POST',
         body: JSON.stringify({
           text: goalText,
@@ -78,7 +82,7 @@ function App() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost/goals/' + goalId, {
+      const response = await fetch(BACKEND_URL + '/' + goalId, {
         method: 'DELETE',
       });
 
