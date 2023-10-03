@@ -7,7 +7,7 @@ docker network ls
 
 
 # Create MONGO container with named persist data, set network, and enviroment username and password
-docker run -d --network goals -e MONGO_INITDB_ROOT_USERNAME=rmc3408 -e MONGO_INITDB_ROOT_PASSWORD=secret123 --name mongo-server -v mongo-db:/data/db mongo:6
+docker run -d --rm --network goals -e MONGO_INITDB_ROOT_USERNAME=rmc3408 -e MONGO_INITDB_ROOT_PASSWORD=secret123 --name mongo-server -v mongo-db:/data/db mongo:6
 
 
 # Create BACKEND image and container with interconnection backend-database and publish connection to browser frontEnd, and persist data
@@ -27,3 +27,11 @@ docker container stop movie-app mongo-tiny
 docker container rm movie-app mongo-tiny
 docker image rmi movie:1
 docker network rm movies-network
+
+# DOCKER-COMPOSE
+docker-compose up
+-d __detach mode__
+-build __rebuilt images__
+
+docker-compose down
+-v __remove all named volumes__

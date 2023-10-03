@@ -1,0 +1,57 @@
+version: "3.8"
+services:
+  mongo-server:
+    image: mongo:6
+    # container_name: mongo-server
+    volumes:
+      - mongo-db:/data/db # Only named volume need to declare at end of file 
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: rmc3408
+    #   - MONGO_INITDB_ROOT_USERNAME=rmc3408 
+    #   - MONGO_INITDB_ROOT_PASSWORD=secret123
+    env_file:
+      - ./variables.env
+    networks:
+      - goals
+  backend:
+    build: ./backend
+    # build:
+    #   context: ./backend
+    #   dockerfile: Dockefile
+    #   args:
+    #     some-arg: 1
+    ports:
+      - "3001:3001"
+    volumes:
+      - mongo-db:/data/db
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: rmc3408
+    #   - MONGO_INITDB_ROOT_USERNAME=rmc3408 
+    #   - MONGO_INITDB_ROOT_PASSWORD=secret123
+    env_file:
+      - ./variables.env
+    volumes:
+      - ./backend:/app # here can use relative path, not full absolute path as in docker command
+      - /app/node_modules 
+    networks:
+      - goals
+    depends_on:
+      - mongo-server
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/app/src
+    networks:
+      - goals
+    depends_on:
+      - mongo-server
+    stdin_open: true
+    tty: true
+
+volumes: # named volume must be specific here, not anonymous or bind mounts
+  mongo-db:
+
+networks:
+  goals:

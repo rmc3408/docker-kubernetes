@@ -5,3 +5,6 @@
 ::ffff:192.168.160.1 - - [02/Oct/2023:18:12:31 +0000] "GET /goals HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
 ::ffff:192.168.160.1 - - [02/Oct/2023:18:13:07 +0000] "GET /goals HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
 ::ffff:192.168.160.1 - - [02/Oct/2023:18:47:10 +0000] "GET /goals HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+::ffff:172.19.0.1 - - [03/Oct/2023:12:22:39 +0000] "GET /users HTTP/1.1" 404 144 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+::ffff:172.19.0.1 - - [03/Oct/2023:12:22:45 +0000] "GET /goals HTTP/1.1" 200 12 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+::ffff:172.19.0.1 - - [03/Oct/2023:12:22:45 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:3001/goals" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
