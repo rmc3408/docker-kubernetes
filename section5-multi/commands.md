@@ -35,3 +35,5 @@ docker-compose up
 
 docker-compose down
 -v __remove all named volumes__
+
+docker-compose run <name of container> <command after entrypoint>
