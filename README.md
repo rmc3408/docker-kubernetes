@@ -17,7 +17,7 @@ Course Instructor: Academind by Maximilian Schwarzmüller
 | Section 05 | Building Multi-Container App with Docker | &check; | <br>
 | Section 06 | Docker Compose | &check; | <br>
 | Section 07 | Working with Utility Containers & executing commands in containers | &check; | <br>
-| Section 08 | A more Complex Setup: Lavarel & PHP project |  | <br>
+| Section 08 | A more Complex Setup: Lavarel & PHP project | &check; | <br>
 | Section 09 | Deploying Docker Container |  | <br>
 | Section 10 | Docker & Container: Summary |  | <br>
 | Section 11 | Getting Started with Kubernetes |  | <br>
