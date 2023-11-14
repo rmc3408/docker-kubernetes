@@ -39,7 +39,7 @@ Custom TCP to get port 3000.
 7. To update code again, build and push locally and docker pull and run on SSH
 
 
-# DOCKER-COMPOSE
+# Deploy-2 in ECS
+NOT DOING BECAUSE IS NOT FREE SERVICE
 
 
-# DOCKERFILE
