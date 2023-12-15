@@ -4,7 +4,8 @@ const app = express();
 
 app.get('/', (req, res) => {
   res.send(`
-    <h1>Updated NodeJS app</h1>
+    <h1>Updated NodeJS app !!!!</h1>
+    <h1>HELLO</h1>
     <p>Try sending a request to /error and see what happens</p>
   `);
 });

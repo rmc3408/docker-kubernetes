@@ -2,19 +2,30 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: node-deployment
+  labels:
+    group: frontend
 spec:
   replicas: 1
-  selector:
+  selector: # how the created ReplicaSet finds which Pods to manage
     matchLabels:
       app: node-pod
+    # matchExpression:
+    #   - { key: app, values: [node-pod], operator: In }
   template:
-    metadata:
+    metadata: # description of each pod
       labels:
-        app: node-pod
+        app: node-pod # key value pairs of pod
     spec:
       containers:
       - name: node-simple
         image: rmc3408/node-simple-img:0.2
+        imagePullPolicy: Always # get lastest version
+        livenessProbe: # The kubelet uses to know when to restart a container
+          httpGet:
+            path: /
+            port: 8080
+          periodSeconds: 60
+          initialDelaySeconds: 10
         ports:
         - containerPort: 8080
 
@@ -24,6 +35,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: backend
+  labels:
+    app: node-pod # key value pairs of same as pod
+    group: frontend
 spec:
   selector:
     app: node-pod
