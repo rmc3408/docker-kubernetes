@@ -6,7 +6,7 @@ metadata:
     group: frontend
 spec:
   replicas: 1
-  selector: # how the created ReplicaSet finds which Pods to manage
+  selector: # how the created ReplicaSet finds which Pods to connect to deployment manage
     matchLabels:
       app: node-pod
     # matchExpression:

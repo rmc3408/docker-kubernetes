@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: story-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: story-pod
+  template:
+    metadata:
+      labels:
+        app: story-pod
+    spec:
+      containers:
+      - name: node-stories
+        image: rmc3408/node-stories:0.2
+        ports:
+        - containerPort: 3000
