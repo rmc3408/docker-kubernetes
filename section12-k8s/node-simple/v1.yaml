@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-deployment
+  name: node-deployment # Deployment named
   labels:
     group: frontend
 spec:

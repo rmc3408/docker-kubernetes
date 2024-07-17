@@ -9,11 +9,48 @@ spec:
       app: story-pod
   template:
     metadata:
+      name: story-pod
       labels:
         app: story-pod
     spec:
       containers:
       - name: node-stories
-        image: rmc3408/node-stories:0.2
+        image: rmc3408/node-story-sec13:0.2
         ports:
         - containerPort: 3000
+        volumeMounts:
+          - mountPath: /app/story
+            name: story-volume
+        env:
+          - name: STORY_FOLDER
+            #value: 'story'
+            valueFrom:
+              configMapKeyRef: 
+                name: data-story-env 
+                key: folder
+      volumes:
+        - name: story-volume
+          
+          # emptyDir: {} # Use for only 1 replica
+
+          # hostPath: 
+          #   path: /app/story # access only for same Pod and accept multiple replicas
+          #   type: DirectoryOrCreate
+
+          persistentVolumeClaim:
+            claimName: pv-claim
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: story-service
+spec:
+  selector:
+    app: story-pod
+  ports:
+    - protocol: 'TCP'
+      port: 3000
+      targetPort: 3000
+  type: LoadBalancer
+

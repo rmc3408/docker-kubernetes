@@ -22,18 +22,18 @@ Contains several objects:
     
 - Pod object  
   -  is smallest unit contain one or multi-containers.  
-  - They can share volumes with othe pods, has clusterIP address.  
+  - They can share volumes with othe pods, has clusterIP address.    
   - Inside one cluster (task) can communicate using localhost  
-  - lose all state if removed.
+  - lose all state if removed.  
 
 
 - Deployment Object = "Controller"  
-  - kubectl create and controls multiple pods - pause, delete, restart, previous roll back
-  - Set a target state of number instance (autoscale based on CPU, memory, incoming traffic).
+  - kubectl create and controls multiple pods - pause, delete, restart, previous roll back  
+  - Set a target state of number instance (autoscale based on CPU, memory, incoming traffic).  
 
 
 - Service Object  
-kubectl expose pods to cluster and externally access. Each pod has internal IP, Services connect between Pods, make IP unchangable and provider external access between Pods and internet.
+  - kubectl expose pods to cluster and externally access. Each pod has internal IP in cluster by default.Need to create Services connect working nodes (between Pods), this create shared IP unchangable and provider external access between Pods and internet.
   
   
 *types of services*

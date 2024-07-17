@@ -6,11 +6,12 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-const filePath = path.join(__dirname, 'story', 'text.txt');
+const filePath = path.join(__dirname, process.env.STORY_FOLDER, 'text.txt');
 
 app.use(bodyParser.json());
 
 app.get('/story', (req, res) => {
+  console.log('Creating a story in POD')
   fs.readFile(filePath, (err, data) => {
     if (err) {
       return res.status(500).json({ message: 'Failed to open file.' });
@@ -32,4 +33,9 @@ app.post('/story', (req, res) => {
   });
 });
 
-app.listen(3000);
+app.get('/error', (req, res) => {
+  console.log('ERROR POD - NODE-APP')
+  process.exit(1);
+});
+
+app.listen(3000, () => console.log('connected to server!'));
