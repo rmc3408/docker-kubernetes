@@ -48,7 +48,8 @@ Minikube is virtual machine Cluster directed connect to kubectl. KubeCTL runs in
 `kubectl get services`  
 
 - create a SSH tunnel from the pod to your host and open a window in your default browser that’s connected to the service.  
-`minikube service node-app`
+`minikube service node-app`  
+__if you are using LoadBalanced(fixed IP) instead NodePort(dynamicIP)__, you can use `minikube tunnel`
 
 - Choose external port to forward  
 `kubectl port-forward service/node-app 3000:8080`  

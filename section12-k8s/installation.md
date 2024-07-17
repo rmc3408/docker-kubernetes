@@ -38,6 +38,8 @@ Contains several objects:
   
 *types of services*
 - ClusterIP - Exposes Service only reachable from within the cluster.
-- NodePort - Exposes Service accessible from outside the cluster using <NodeIP>:<NodePort>. Superset of ClusterIP.
+- NodePort - Exposes Service accessible from outside the cluster using <NodeIP>:<NodePort> but dynamic IP address. Superset of ClusterIP. 
 - LoadBalancer - Creates an external load balancer and assigns a fixed external IP to the Service. Superset of NodePort.
 - ExternalName - Maps the Service to the contents of the externalName field.
+
+NodePort and LoadBalancer expose IP to external cluster.
