@@ -33,4 +33,9 @@ __Modify `users-app.js` back to call auth axios__
   2. Automatic generated environment in the code (process.env.X_SERVICE_HOST)  
   3. generated-domains name inside service DOT Namespace (service_name.namespace).  
 
-## Step 3: Connect Task to Auth and External Access.
+## Step 3: Communicate between namespace services (ingress and default).
+- [NAME_OF_SERVICE].[NAMESPACE].svc.cluster.local
+- ingress-nginx-controller.ingress-nginx.svc.cluster.local
+
+
+
